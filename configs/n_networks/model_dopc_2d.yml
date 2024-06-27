@@ -1,0 +1,147 @@
+BACKEND:
+  BREAK_WHEN_LOSS_NAN: true
+  CUDNN_BENCHMARK: false
+  DATALOADER_PIN_MEMORY: false
+  DATASET_DOWNLOAD_FOLDER: ./dataset
+  SCALE_LEARNING_RATE: false
+DATALOADER:
+  NUM_WORKERS: 0
+  PER_STEP_BATCH_SIZE: 128
+EXPERIMENT:
+  CHECKPOINTING:
+    CHECKPOINTING_INTERVAL: 100000
+    DO_INTERVAL_CHECKPOINTING: false
+  DEVICE: cuda:0
+  SEED: 377799970
+  TASK: REGRESSION
+  WORKDIR: ./workdirs/model_dopc_2d_n
+LOGGING:
+  DO_TENSORBOARD_LOGGING: true
+  LOGGING_ITER_INTERVAL: 10
+LR_SCHEDULER:
+  LR_MULTIPLICATIVE_FACTOR: 1.0
+  MILESTONES:
+  - 60
+  - 80
+  MIN_LR: 1.0e-06
+  TYPE: ConstantLR
+  UPDATE_PERIOD: 5
+  WARMUP_STEPS: 2000
+MODEL:
+  IMFCSNET:
+    CONV1D_GROUP_BLOCKS_PER_STAGE: 2
+    CONV1D_GROUP_FILTER_SIZE: 50
+    CONV1D_GROUP_STAGES: 2
+    DENSE_MIXING_BLOCKS_PER_STAGE: 2
+    DENSE_MIXING_NUM_STAGES: 6
+    FILTER_CHANNELS: 45
+    SPATIAL_AGG_BLOCK_KERNEL_SIZE:
+    - 200
+    - 3
+    - 3
+    STRIDED_CONV_LAYER_FILTER_STRIDE: 8
+    STRIDED_CONV_LAYER_KERNEL_SIZE: 100
+    USE_ORIGINAL_WEIGHT_INIT: false
+  NAME: imfcsnet
+  WEIGHTS: null
+OPTIMIZER:
+  BASE_LEARNING_RATE: 0.001
+  BETAS:
+  - 0.9
+  - 0.999
+  EPS: 1.0e-07
+  MOMENTUM: 0.9
+  TYPE: AdamW
+  WEIGHT_DECAY: 0.01
+SIMULATION:
+  BACKEND:
+    MAX_QUEUE_SIZE: 12000
+    QUEUE_RETRY_TIME: 3
+    SIM_COUNT: 4096
+  CONSTANTS:
+    FRAMES: 2500
+    MARGIN: 6
+    NUM_PIXELS: 3
+    STEPS_PER_FRAME: 10
+  PARAMETER_SAMPLING_STRATEGY: minmax
+  SIM_2D_PHYSICAL:
+    CONSTANTS:
+      DO_BLEACHING: 0
+      DO_BLINKING: 0
+      FRAME_TIME: 0.00106
+      MAGNIFICATION: 100
+      NA: 1.45
+      PIXEL_SIZE: 24
+      WAVELENGTH: 583
+    DIMENSIONALITY: 4
+    VARIABLES:
+      MAX:
+        BLEACH_FRAME: 10000000
+        BLEACH_RADIUS: 3.0
+        CPS: 10000
+        D1: 15.0
+        D2: 0.0
+        D3: 0.0
+        F2: 0.0
+        F3: 0.0
+        NO_OF_PARTICLES: 10000
+        PSF_SIGMA_0: 0.85
+        TAU_BLEACH: 100000
+        TRIPLET_OFF_RATE: 0.0
+        TRIPLET_ON_RATE: 1.0
+      MIN:
+        BLEACH_FRAME: 10000000
+        BLEACH_RADIUS: 3.0
+        CPS: 1000
+        D1: 0.02
+        D2: 0.0
+        D3: 0.0
+        F2: 0.0
+        F3: 0.0
+        NO_OF_PARTICLES: 1
+        PSF_SIGMA_0: 0.75
+        TAU_BLEACH: 100000
+        TRIPLET_OFF_RATE: 0.0
+        TRIPLET_ON_RATE: 1.0
+      TRANSFORM:
+        BLEACH_FRAME: null
+        BLEACH_RADIUS: null
+        CPS: null
+        D1: null
+        D2: null
+        D3: null
+        F2: null
+        F3: null
+        NO_OF_PARTICLES: log
+        PSF_SIGMA_0: null
+        TAU_BLEACH: null
+        TRIPLET_OFF_RATE: null
+        TRIPLET_ON_RATE: null
+  TYPE: SIM_2D_PHYSICAL
+TASK:
+  REGRESSION:
+    TARGETS:
+    - NO_OF_PARTICLES
+    TARGET_TRANSFORM:
+    - log
+TRAINING:
+  ITERATIONS: 1000000
+TRANSFORMS:
+  EVAL: {}
+  TRAIN:
+    DISABLE: false
+    NOISE:
+      EMCCD:
+        DO_SCALING: true
+        PMF_FILE: imfcs_pytorch/data/transforms/augmentations/emccd_pmf_2d.npy
+        SCALE_MAX: 1.2
+        SCALE_MIN: 0.8
+      GAUSSIAN:
+        SCALE_MAX: 9.0
+        SCALE_MIN: 1.0
+      MIX:
+        GAUSSIAN_PROB: 0.5
+      TYPE: mix
+  UNIVERSAL:
+    NORMALIZATION: zerofloor
+
