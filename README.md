@@ -70,7 +70,7 @@ We provide the config files used to train the models from the paper in `imfcsnet
 For example, to train the model used for evaluation of DOPC data, run the following command.
 
 ```shell
-$ python train.py --cfg configs/model_dopc_2d.yml
+$ python train.py --cfg configs/d_networks/model_dopc_2d.yml
 ```
 
 Currently, you need to have an Nvidia GPU to train models, as the simulation code is written for CUDA.
@@ -85,7 +85,7 @@ Once a model is trained to completion, you can execute inference by running the 
 
 ```shell
 python inference.py \
-    --cfg "configs/model_dopc_2d.yml" \
+    --cfg "configs/d_networks/model_dopc_2d.yml" \
     --ckpt "./workdir/model_dopc_2d/last.ckpt" \
     --files "path/to/tiffs/image_01.tif" \
     --output-folder "model_outputs"
@@ -97,7 +97,7 @@ By default, inference is executed on the CPU, which can be slow. If you have an 
 
 ```shell
 python inference.py \
-    --cfg "configs/model_dopc_2d.yml" \
+    --cfg "configs/d_networks/model_dopc_2d.yml" \
     --ckpt "./workdir/model_dopc_2d/last.ckpt" \
     --files "path/to/tiffs/image_01.tif" \
     --output-folder "model_outputs" \
@@ -108,7 +108,7 @@ If you are evaluating on experimental data, it is very likely that photobleachin
 
 ```shell
 python inference.py \
-    --cfg "configs/model_dopc_2d.yml" \
+    --cfg "configs/d_networks/model_dopc_2d.yml" \
     --ckpt "./workdir/model_dopc_2d/last.ckpt" \
     --files "path/to/tiffs/image_01.tif" \
     --output-folder "model_outputs" \
@@ -120,7 +120,7 @@ We also provide some convenience functionality via globbing. If you have a folde
 
 ```shell
 python inference.py \
-    --cfg "configs/model_dopc_2d.yml" \
+    --cfg "configs/d_networks/model_dopc_2d.yml" \
     --ckpt "./workdir/model_dopc_2d/last.ckpt" \
     --files "path/to/tiffs/*.tif" \
     --output-folder "model_outputs" \
@@ -134,7 +134,7 @@ Note that you should also use the corresponding config file that matches the nam
 
 ```shell
 python inference.py \
-    --cfg "configs/model_dopc_2d.yml" \
+    --cfg "configs/d_networks/model_dopc_2d.yml" \
     --ckpt "./model_checkpoints/model_chok1_2d.ckpt" \
     --files "path/to/tiffs/*.tif" \
     --output-folder "model_outputs" \
