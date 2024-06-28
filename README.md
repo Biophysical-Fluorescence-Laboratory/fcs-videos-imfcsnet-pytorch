@@ -32,6 +32,22 @@ $ rm -rf ~/miniconda3/miniconda.sh
 Then, you can create a Python environment to install the required libraries for
 this codebase.
 
+### Automatic creation
+
+```shell
+$ conda env create -f environment.yml
+$ conda activate torch
+```
+
+By running the first command, you will create an environment called `torch` with
+all the required dependencies. Remember to activate the environment whenever you
+want to use this codebase.
+
+If you use this method, you can skip the
+[Installing Libraries](#installing-libraries) section.
+
+### Manual creation
+
 ```shell
 $ conda create -n torch python=3.10
 $ conda activate torch
@@ -44,8 +60,6 @@ installed libraries will be isolated to this install location.
 ## Installing Libraries
 
 You can now install the required libraries for model training and inference.
-
-### Automatic installation
 
 1. Start by installing PyTorch as per the instructions on the PyTorch website
    (https://pytorch.org/get-started/locally/).

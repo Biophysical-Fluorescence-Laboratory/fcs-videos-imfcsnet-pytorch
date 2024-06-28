@@ -1,0 +1,22 @@
+name: torch
+channels:
+  - pytorch
+  - nvidia
+  - defaults
+dependencies:
+  - python=3.10
+  - pytorch
+  - torchvision
+  - pytorch-cuda=12.1
+  - numba
+  - pip
+  - pip:
+    - timm
+    - yacs
+    - matplotlib
+    - seaborn
+    - torcheval
+    - tensorboard
+    - torchinfo
+    - tifffile
+    - scipy
