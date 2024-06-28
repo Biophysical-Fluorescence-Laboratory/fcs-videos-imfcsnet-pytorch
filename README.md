@@ -1,7 +1,7 @@
 # ImFCSNet PyTorch
 This repository serves as a reproduction of the original ImFCSNet code (https://github.com/ImagingFCS/ImFCS_FCSNet_ImFCSNet) that was released alongside the paper "Deep learning reduces data requirements and allows real-time measurements in imaging FCS."
 
-This is not a fork, but rather a reimplementation in PyTorch to allow for further experimentation in a different framework that might be more familiar for deep learning practicioners.
+This is not a fork, but rather a reimplementation in PyTorch to allow for further experimentation in a different framework that might be more familiar for deep learning practitioners.
 
 # Setup
 ## Conda Environment Manager
@@ -130,7 +130,7 @@ python inference.py \
 ## Reproducing paper results
 We include the model checkpoints used for the FCS videos in the paper. To use them, simply run the inference command while pointing to the right checkpoint.
 
-Note that you should also use the corresponding config file that matches the name of the checkpoint. This avoids any odd mismatchs that may happen.
+Note that you should also use the corresponding config file that matches the name of the checkpoint. This avoids any odd mismatches that may happen.
 
 ```shell
 python inference.py \
@@ -152,7 +152,7 @@ Then, assuming you want to use the same training recipe that we used, all you ne
 ```yaml
 SIMULATION:
   SIM_2D_PHYSICAL:
-    # Modify the constants to match your acquisiton setup.
+    # Modify the constants to match your acquisition setup.
     CONSTANTS:
       FRAME_TIME: 0.00206
       MAGNIFICATION: 100
