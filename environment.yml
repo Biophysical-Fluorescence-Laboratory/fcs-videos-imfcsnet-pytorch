@@ -5,18 +5,18 @@ channels:
   - defaults
 dependencies:
   - python=3.10
-  - pytorch
-  - torchvision
+  - pytorch=2.3.0
+  - torchvision=0.18.0
   - pytorch-cuda=12.1
-  - numba
+  - numba=0.59.1
   - pip
   - pip:
-    - timm
-    - yacs
-    - matplotlib
-    - seaborn
-    - torcheval
-    - tensorboard
-    - torchinfo
-    - tifffile
-    - scipy
+    - timm==0.9.16
+    - yacs==0.1.8
+    - matplotlib==3.8.4
+    - seaborn==0.13.2
+    - torcheval==0.0.7
+    - tensorboard==2.16.2
+    - torchinfo==1.8.0
+    - tifffile==2024.5.10
+    - scipy==1.13.0
