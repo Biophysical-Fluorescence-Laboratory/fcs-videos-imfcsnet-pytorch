@@ -34,17 +34,34 @@ this codebase.
 
 ### Automatic creation
 
+If you have conda installed, you can use the following commands to directly
+install the environment. If you have a GPU with CUDA support, use
+`environment.yml`.
+
+If you do not have a GPU, you can use `environment-cpu.yml`. Note that training
+is not supported in this configuration.
+
+#### CUDA support (Training and Inference)
+
 ```shell
 $ conda env create -f environment.yml
 $ conda activate torch
 ```
 
-By running the first command, you will create an environment called `torch` with
-all the required dependencies. Remember to activate the environment whenever you
-want to use this codebase.
+#### CPU (Inference only)
+
+```shell
+$ conda env create -f environment-cpu.yml
+$ conda activate torch
+```
+
+By running the `conda env create -f <file.yml>` command, you will create an
+environment called `torch` with all the required dependencies. Remember to
+activate the environment whenever you want to use this codebase.
 
 If you use this method, you can skip the
-[Installing Libraries](#installing-libraries) section.
+[Installing Libraries](#installing-libraries) section and jump to
+[Using the codabase](#using-the-codebase).
 
 ### Manual creation
 
