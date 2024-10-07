@@ -1,9 +1,9 @@
 # ImFCSNet PyTorch
 
-This repository serves as a reproduction of the original ImFCSNet code
-(https://github.com/ImagingFCS/ImFCS_FCSNet_ImFCSNet) that was released
-alongside the paper "Deep learning reduces data requirements and allows
-real-time measurements in imaging FCS."
+This repository hosts the code used in the paper [“FCS videos: Fluorescence correlation spectroscopy in space and time”](https://www.sciencedirect.com/science/article/pii/S0304416524001594).
+
+This repository also serves as a reproduction of the [original ImFCSNet code](https://github.com/ImagingFCS/ImFCS_FCSNet_ImFCSNet) that was released
+alongside the paper ["Deep learning reduces data requirements and allows real-time measurements in imaging FCS."](https://www.cell.com/biophysj/fulltext/S0006-3495(23)04119-X).
 
 This is not a fork, but rather a reimplementation in PyTorch to allow for
 further experimentation in a different framework that might be more familiar for
@@ -265,7 +265,6 @@ different key/value pairs.
 
 # References
 
-Tang WH, Sim SR, Aik DYK, Nelanuthala AVS, Athilingam T, Röllin A, Wohland T.
-Deep learning reduces data requirements and allows real-time measurements in
-imaging FCS. Biophys J. 2023 Dec 4:S0006-3495(23)04119-X. doi:
-10.1016/j.bpj.2023.11.3403. Epub ahead of print. PMID: 38050354.
+Wohland, T., Sim, S. R., Demoustier, M., Pandey, S., Kulkarni, R., & Aik, D. (2024). FCS videos: Fluorescence correlation spectroscopy in space and time. Biochimica et Biophysica Acta (BBA)-General Subjects, 130716.
+
+Tang, W. H., Sim, S. R., Aik, D. Y. K., Nelanuthala, A. V. S., Athilingam, T., Röllin, A., & Wohland, T. (2024). Deep learning reduces data requirements and allows real-time measurements in imaging FCS. Biophysical Journal, 123(6), 655-666.
