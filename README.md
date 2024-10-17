@@ -268,7 +268,7 @@ Due to an implementation error, the original simulation code had a bug where the
 
 This does not affect the results reported in the original paper, but it does mean that the models were trained with a lower signal-to-noise ratio than intended, as the particles are spread over a larger area.
 
-This bug has been fixed in [this pull request](), and the existing model configurations have been updated to reflect the unintentional 18x18 area (by replacing the `MARGIN` parameter with `7.5`, which results in the 18x18 simulation area the models were originally trained on)
+This bug has been fixed in [this commit](bac960c1e7a4ca086bc1cc923cff45755fb72fd0), and the existing model configurations have been updated to reflect the unintentional 18x18 area (by replacing the `MARGIN` parameter with `7.5`, which results in the 18x18 simulation area the models were originally trained on)
 
 # References
 
