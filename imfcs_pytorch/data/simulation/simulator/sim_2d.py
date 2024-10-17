@@ -172,7 +172,7 @@ def simulate(
     # Detection specific
     sim_grid_size = num_pixels * pixel_size
     sim_mid_pos = sim_grid_size / 2.0
-    extension_factor = (sim_margin + num_pixels) / num_pixels
+    extension_factor = (sim_margin * 2 + num_pixels) / 2 / num_pixels
     sim_size_lower_limit = -extension_factor * sim_grid_size
     sim_size_upper_limit = extension_factor * sim_grid_size
     range_lower_to_upper = sim_size_lower_limit - sim_size_upper_limit

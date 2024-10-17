@@ -263,6 +263,13 @@ you can reference the documentation under
 `imfcsnet-pytorch/imfcs_pytorch/config/defaults.py`, which explains all of the
 different key/value pairs.
 
+# Bugfix Update
+Due to an implementation error, the original simulation code had a bug where the total simulation area was larger than intended. Specifically, the total simulation area was 18x18 pixels, instead of the intended 15x15 pixels.
+
+This does not affect the results reported in the original paper, but it does mean that the models were trained with a lower signal-to-noise ratio than intended, as the particles are spread over a larger area.
+
+This bug has been fixed in [this commit](bac960c1e7a4ca086bc1cc923cff45755fb72fd0), and the existing model configurations have been updated to reflect the unintentional 18x18 area (by replacing the `MARGIN` parameter with `7.5`, which results in the 18x18 simulation area the models were originally trained on)
+
 # References
 
 Wohland, T., Sim, S. R., Demoustier, M., Pandey, S., Kulkarni, R., & Aik, D. (2024). FCS videos: Fluorescence correlation spectroscopy in space and time. Biochimica et Biophysica Acta (BBA)-General Subjects, 130716.
